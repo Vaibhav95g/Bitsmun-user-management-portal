@@ -1,0 +1,229 @@
+  <!DOCTYPE HTML>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<!-- Latest compiled and minified CSS -->
+<script src="http://code.jquery.com/jquery-2.1.4.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Custom styles for this template -->
+   <style>
+.error {color: #FF0000;}
+</style>
+</head>
+<body>
+
+<?php
+// define variables and set to empty values
+$nameErr = "";
+$name = $website = $poc = $pnl = $pnm = $email = $website = $address = $region = $pt = $tt = $mp = $exp = $nmi = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	if (empty($_POST["name"])) {
+		$nameErr = "Domain ID is required";
+	} else {
+		$name = test_input($_POST["name"]);
+	}
+  
+	$website = test_input($_POST["website"]);
+	$poc = test_input($_POST["poc"]);
+	$pnl = test_input($_POST["pnl"]);
+	$pnm = test_input($_POST["pnm"]);
+	$email = test_input($_POST["email"]);
+	$address = test_input($_POST["address"]);
+	$region = test_input($_POST["region"]);
+	$state = test_input($_POST["state"]);
+	$pt = test_input($_POST["pt"]);
+	$tt = test_input($_POST["tt"]);
+	$mp = test_input($_POST["mp"]);
+	$exp = test_input($_POST["exp"]);
+	$nmi = test_input($_POST["nmi"]);
+
+	
+	
+
+}
+
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+?>
+
+ <div class="container">
+
+   	<div class="starter-template">
+	<div class="jumbotron">
+    	
+    		<h1>Company Survey Form</h1>
+        <p class="lead">Use this form to enter the information about the companies<br></p>
+        </div>
+		</div><!-- /starter-template class -->
+		<div class="form-signin">
+			<form class="form-horizontal" role="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+		<div class="form-group">
+    <label class="control-label col-sm-4" for="name">Company Name:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter Company Name">
+      <span class="error"><?php echo $nameErr;?></span>
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="poc">Person of contact:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="poc" name="poc" placeholder="Enter Person of Contact Name">
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="pnl">Phone Number landline:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="pnl" name="pnl" placeholder="Enter landline Phone Number">
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="pnm">Phone Number mobile:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="pnm" name="pnm" placeholder="Enter Mobile Phone Number">
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="email">E-mail:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="email" name="email" placeholder="Enter E-mail">
+    </div>
+  </div>
+	
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="website">Company website:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="website" name="website" placeholder="Enter website url">
+    </div>
+  </div>
+
+
+	
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="address">Address:</label>
+    <div class="col-sm-8">
+      <textarea input type="text" rows="3" class="form-control" id="address" name="address" placeholder="Enter Address"></textarea>
+    </div>
+  </div>
+	
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="region">Region:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="region" name="region" placeholder="Enter Region">
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="state">state:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="state" name="state" placeholder="Enter state">
+    </div>
+  </div>
+  
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="pt">Product Type:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="pt" name="pt" placeholder="Enter Product Type">
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="tt">Transport type:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="tt" name="tt" placeholder="Enter Transport type">
+    </div>
+  </div>
+
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="mp">Main Problems:</label>
+    <div class="col-sm-8">
+      <textarea input type="text" rows="12" class="form-control" id="mp" name="mp" placeholder="Enter Main Problems"></textarea>
+    </div>
+  </div>
+	
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="exp">Expectations:</label>
+    <div class="col-sm-8">
+      <textarea input type="text" rows="12" class="form-control" id="exp" name="exp" placeholder="Enter Expectations"></textarea>
+    </div>
+  </div>
+	
+	<div class="form-group">
+    <label class="control-label col-sm-4" for="nmi">New Market Insight:</label>
+    <div class="col-sm-8">
+      <textarea input type="text" rows="12" class="form-control" id="nmi" name="nmi" placeholder="Enter New Market Insight"></textarea>
+    </div>
+  </div>
+	
+	
+   <div class="form-group"> 
+    <div class="col-sm-offset-4 col-sm-8">
+      <button type="submit" class="btn btn-lg btn-primary" name="submit" value="Submit">Submit</button>
+    </div>
+  </div>
+  </form>
+  </div>   
+  </div> <!-- end container -->
+</form>
+</div></div>
+
+
+<?php
+if((empty($nameErr))&&(!empty($name))){
+	 $m = new MongoClient();
+	$db = $m->surveyData;
+	$collection = $db->createCollection("companySurveyData");
+	$document = array(
+	        "companyName" => $name,
+		"personOfContact" => $poc,
+		"phoneNumberLandline" => $pnl,
+		"phoneNumberMobile" => $pnm,
+		"email" => $email,
+		"website" => $website,
+		"address" => $address,
+		"region" => $region,
+		"state" => $state,
+		"productType" => $pt,
+		"transportType" => $tt,
+		"mainProblems" => $mp,
+		"expectations" => $exp,
+		"newMarketInsights" => $nmi,
+	        
+	   );
+	$collection->insert($document);
+	$message = "Data inserted successfully";
+echo "<script type='text/javascript'>alert('$message');</script>";
+}
+?>
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+
+</body>
+</html>
